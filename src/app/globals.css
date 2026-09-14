@@ -8,3 +8,13 @@ body{overflow-x:clip}.brand img{mix-blend-mode:screen}.brand .photo{isolation:is
 .header:before{right:0}
 
 .stats .stat-art{width:38px;height:38px;margin-bottom:17px}.stats .stat-art img{object-fit:contain}.brand img{mix-blend-mode:normal}@media(max-width:700px){.stats .stat-art{grid-row:1/4;width:30px;height:34px;margin:0}}
+
+/* Stable pointer surfaces keep the tilt from feeding back into its coordinates. */
+.stats{align-items:flex-start;padding-bottom:12px}
+.stat-slot{flex:1;min-width:0;margin-top:calc(var(--step)*28px);perspective:700px;position:relative}
+.stats .stat-slot article{width:100%;min-height:232px;background:#164b60;transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transform-origin:center;transition:transform 220ms ease-out;backface-visibility:hidden}
+.stats .stat-slot:first-child article{background:#0c4053}
+.stats .stat-slot:last-child article{background:#1c6078}
+@media(hover:hover) and (pointer:fine){.stat-slot:hover{z-index:3}}
+@media(max-width:700px){.stats{padding-bottom:0}.stat-slot{flex-basis:100%;margin-top:0}.stats .stat-slot article{min-height:0}}
+@media(prefers-reduced-motion:reduce){.stats .stat-slot article{transform:none;transition:none}}

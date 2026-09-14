@@ -5,3 +5,4 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 body{overflow-x:clip}.brand img{mix-blend-mode:screen}.brand .photo{isolation:isolate}
+.header:before{right:0}

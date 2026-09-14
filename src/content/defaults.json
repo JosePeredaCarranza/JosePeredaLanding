@@ -186,7 +186,13 @@
     "claimsLabel": "Libro de Reclamaciones",
     "claimsUrl": ""
   },
-  "socials": [],
+  "socials": [
+    {
+      "_key": "github",
+      "platform": "github",
+      "url": "https://github.com/JosePeredaCarranza"
+    }
+  ],
   "privacy": {
     "title": "Política de Privacidad",
     "text": "Los datos enviados mediante este formulario se utilizan para responder tu solicitud de un proyecto web. Puedes solicitar acceso, rectificación o eliminación de tu información escribiendo al correo de contacto del sitio. Las comunicaciones comerciales solo se enviarán si marcas la casilla opcional correspondiente."

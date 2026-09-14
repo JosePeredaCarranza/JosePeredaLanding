@@ -55,12 +55,10 @@ html{scroll-padding-top:106px}
 
 .process-heading{display:flex;align-items:center;gap:16px;margin-bottom:30px}
 .process-heading h2{margin-bottom:0}
-.process-playback{display:grid;place-items:center;width:30px;height:30px;flex-shrink:0;border:1px solid #41646f;border-radius:50%;background:transparent;color:#9bd4e4}
-.process-playback:hover{background:#18343e}
 .step-icon{width:19px;height:19px;flex-shrink:0}
 .process .step-title{transition:box-shadow 300ms ease,border-color 300ms ease}
 .process li.is-current-step .step-title{box-shadow:0 0 0 1px #d1f6ff,0 0 20px #8bddf366;border-color:#ceefff}
 .process-traveller{opacity:0;pointer-events:none}
 .process-connectors .traveller-halo{fill:#80dbff;opacity:.45;filter:blur(4px)}
 .process-connectors .traveller-core{fill:#efffff;filter:drop-shadow(0 0 4px #a3e9ff)}
-@media(prefers-reduced-motion:reduce){.process-traveller,.process-playback{display:none}}
+@media(prefers-reduced-motion:reduce){.process-traveller{display:none}}

@@ -1,10 +1,43 @@
 "use client";
 import {useEffect,useRef,useState} from 'react';
+import {FiMessageCircle,FiGitBranch,FiCode,FiCheckCircle,FiSend,FiPause,FiPlay} from 'react-icons/fi';
+const stepIcons=[FiMessageCircle,FiGitBranch,FiCode,FiCheckCircle,FiSend];
 type Step={_key:string;title:string;text:string};
 type Connector={key:string;path:string;start:[number,number];end:[number,number]};
 export function WorkProcess({title,steps}:{title:string;steps:Step[]}){
  const track=useRef<HTMLDivElement>(null);
  const [lines,setLines]=useState<Connector[]>([]);
+ const [paused,setPaused]=useState(false);
+ const marker=useRef<SVGGElement>(null);
+ useEffect(()=>{
+  const root=track.current;if(!root||!lines.length)return;
+  const paths=Array.from(root.querySelectorAll<SVGPathElement>('.connector-path'));
+  const items=Array.from(root.querySelectorAll('li'));
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const durations=paths.map(path=>Math.max(750,path.getTotalLength()/260*1000));
+  const dwell=950,total=durations.reduce((a,b)=>a+b,0)+items.length*dwell+650;
+  let frame=0,previous=0,elapsed=0,visible=false;
+  function hide(){if(marker.current)marker.current.style.opacity='0';items.forEach(item=>item.classList.remove('is-current-step'));}
+  function tick(time:number){
+   elapsed+=previous?Math.min(time-previous,64):0;previous=time;
+   let progress=elapsed%total,stage=0,travel=false;
+   for(;stage<items.length;stage++){
+    if(progress<dwell)break;
+    progress-=dwell;
+    if(stage<paths.length){if(progress<durations[stage]){travel=true;break;}progress-=durations[stage];}
+   }
+   items.forEach((item,index)=>item.classList.toggle('is-current-step',index===stage));
+   if(marker.current){
+    marker.current.style.opacity=travel?'1':'0';
+    if(travel){const point=paths[stage].getPointAtLength(paths[stage].getTotalLength()*progress/durations[stage]);marker.current.setAttribute('transform',`translate(${point.x} ${point.y})`);}
+   }
+   frame=requestAnimationFrame(tick);
+  }
+  function sync(){cancelAnimationFrame(frame);previous=0;if(visible&&!paused&&!reduced.matches&&!document.hidden){frame=requestAnimationFrame(tick);}else hide();}
+  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:.15});observer.observe(root);
+  reduced.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
+  return()=>{cancelAnimationFrame(frame);observer.disconnect();reduced.removeEventListener('change',sync);document.removeEventListener('visibilitychange',sync);hide();};
+ },[lines,paused]);
  useEffect(()=>{
   const root=track.current;if(!root)return;
   let frame=0;
@@ -35,8 +68,8 @@ export function WorkProcess({title,steps}:{title:string;steps:Step[]}){
   const observer=new ResizeObserver(schedule);observer.observe(root);root.querySelectorAll('li').forEach(item=>observer.observe(item));schedule();
   return()=>{observer.disconnect();cancelAnimationFrame(frame);};
  },[steps]);
- return <section className="process wrap" id="proceso"><h2><strong>{title}</strong></h2><div className="process-track" ref={track}>
- <svg className="process-connectors" aria-hidden="true">{lines.map(line=><g key={line.key}><path d={line.path}/><circle cx={line.start[0]} cy={line.start[1]} r="2"/><circle cx={line.end[0]} cy={line.end[1]} r="2"/></g>)}</svg>
- <ol>{steps.map((step,i)=><li key={step._key}><div className="step-title"><span>{String(i+1).padStart(2,'0')}</span><h3>{step.title}</h3></div><p>{step.text}</p></li>)}</ol>
+ return <section className="process wrap" id="proceso"><div className="process-heading"><h2><strong>{title}</strong></h2><button className="process-playback" type="button" aria-label={paused?'Reanudar recorrido luminoso':'Pausar recorrido luminoso'} title={paused?'Reanudar recorrido':'Pausar recorrido'} onClick={()=>setPaused(value=>!value)}>{paused?<FiPlay aria-hidden="true"/>:<FiPause aria-hidden="true"/>}</button></div><div className="process-track" ref={track}>
+ <svg className="process-connectors" aria-hidden="true">{lines.map(line=><g key={line.key}><path className="connector-path" d={line.path}/><circle cx={line.start[0]} cy={line.start[1]} r="2"/><circle cx={line.end[0]} cy={line.end[1]} r="2"/></g>)}<g ref={marker} className="process-traveller"><circle className="traveller-halo" r="10"/><circle className="traveller-core" r="3"/></g></svg>
+ <ol>{steps.map((step,i)=>{const Icon=stepIcons[Number(step._key)]||stepIcons[i%stepIcons.length];return <li key={step._key}><div className="step-title"><Icon className="step-icon" aria-hidden="true"/><h3>{step.title}</h3></div><p>{step.text}</p></li>;})}</ol>
  </div></section>;
 }

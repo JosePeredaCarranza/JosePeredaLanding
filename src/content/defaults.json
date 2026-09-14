@@ -1,0 +1,209 @@
+{
+  "_id": "landingPage",
+  "_type": "landingPage",
+  "brand": "José Pereda",
+  "logo": {
+    "local": "/images/logo.webp",
+    "alt": "José Pereda — JP"
+  },
+  "nav": [
+    {
+      "_key": "inicio",
+      "label": "Inicio",
+      "href": "#inicio"
+    },
+    {
+      "_key": "acerca",
+      "label": "Acerca de mí",
+      "href": "#acerca"
+    },
+    {
+      "_key": "servicios",
+      "label": "Servicios",
+      "href": "#servicios"
+    },
+    {
+      "_key": "proyectos",
+      "label": "Proyectos",
+      "href": "#proyectos"
+    }
+  ],
+  "contactLabel": "Contactar",
+  "hero": {
+    "eyebrow": "< Desarrollo web >",
+    "title": "Hola, soy\nJosé Pereda.",
+    "description": "Construyo experiencias digitales\ncon propósito.",
+    "primary": "Cotizar proyecto",
+    "secondary": "Mis proyectos",
+    "image": {
+      "local": "/images/jose-pereda.webp",
+      "alt": "Retrato de José Pereda"
+    }
+  },
+  "about": {
+    "title": "Desarrollo\nsoluciones web\npensadas para\nnegocios reales",
+    "stats": [
+      {
+        "_key": "internet",
+        "title": "Más de 28 millones",
+        "subtitle": "de peruanos usan internet.",
+        "text": "Tu próximo cliente podría estar buscándote ahora mismo."
+      },
+      {
+        "_key": "compra",
+        "title": "7 de cada 10",
+        "subtitle": "peruanos investigan online antes de comprar.",
+        "text": "Las búsquedas que realizan en la web influyen en sus decisiones de compra."
+      },
+      {
+        "_key": "confianza",
+        "title": "42% de peruanos",
+        "subtitle": "verifica si la tienda o vendedor es confiable.",
+        "text": "Y el 35% busca reseñas del producto en internet."
+      }
+    ]
+  },
+  "processTitle": "Este es mi proceso de trabajo",
+  "steps": [
+    {
+      "_key": "0",
+      "title": "Conozco tu negocio",
+      "text": "Conversamos sobre tu marca, servicios, clientes y objetivos."
+    },
+    {
+      "_key": "1",
+      "title": "Definimos la estructura",
+      "text": "Organizamos el contenido y las secciones que necesita tu página."
+    },
+    {
+      "_key": "2",
+      "title": "Diseño y desarrollo",
+      "text": "Construyo una web adaptada a celulares, tablets y computadoras."
+    },
+    {
+      "_key": "3",
+      "title": "Revisión",
+      "text": "Revisamos juntos la página y realizamos los ajustes necesarios."
+    },
+    {
+      "_key": "4",
+      "title": "Publicación",
+      "text": "Dejamos tu sitio listo para empezar a recibir visitas y contactos."
+    }
+  ],
+  "servicesTitle": "Servicios",
+  "serviceCta": "Cotizar proyecto",
+  "services": [
+    {
+      "_key": "0",
+      "title": "Landing page",
+      "subtitle": "La mejor forma de comenzar tu presencia digital.",
+      "text": "Presenta tu negocio, servicios y propuesta de valor en una sola página enfocada en generar contactos.",
+      "icon": "landing",
+      "badge": "Más pedido"
+    },
+    {
+      "_key": "1",
+      "title": "Página web",
+      "subtitle": "Una presencia profesional para presentar tu marca.",
+      "text": "Un sitio completo para mostrar tus servicios, proyectos, información y fortalecer la confianza en tu negocio.",
+      "icon": "web",
+      "badge": ""
+    },
+    {
+      "_key": "2",
+      "title": "Tienda virtual",
+      "subtitle": "Lleva tus productos a internet y abre un nuevo canal de venta.",
+      "text": "Muestra tu catálogo, recibe pedidos y permite que tus clientes compren desde cualquier dispositivo.",
+      "icon": "shop",
+      "badge": ""
+    },
+    {
+      "_key": "3",
+      "title": "Desarrollo personalizado",
+      "subtitle": "Una solución hecha a medida para una necesidad específica.",
+      "text": "Desarrollo funcionalidades y herramientas adaptadas a los procesos y objetivos particulares de tu proyecto.",
+      "icon": "code",
+      "badge": ""
+    }
+  ],
+  "projectsTitle": "Proyectos",
+  "projectCta": "Ver proyecto",
+  "projects": [
+    {
+      "_key": "wabu",
+      "title": "Wabú Bloomery",
+      "category": "Landing page",
+      "description": "",
+      "image": null,
+      "url": ""
+    },
+    {
+      "_key": "web",
+      "title": "Página web",
+      "category": "Página web",
+      "description": "",
+      "image": null,
+      "url": ""
+    },
+    {
+      "_key": "landing",
+      "title": "Landing page",
+      "category": "Landing page",
+      "description": "",
+      "image": null,
+      "url": ""
+    }
+  ],
+  "contact": {
+    "title": "¿Trabajamos juntos en tu próximo proyecto?",
+    "description": "Si tienes un negocio que funciona bien fuera de internet, una marca personal que quieres hacer crecer o un servicio que necesitas presentar profesionalmente, podemos construir una solución adecuada para ti.",
+    "nameLabel": "Nombre",
+    "phoneLabel": "WhatsApp",
+    "emailLabel": "Correo",
+    "serviceLabel": "Servicio",
+    "timelineLabel": "¿Cuándo te gustaría tenerlo listo?",
+    "messageLabel": "Cuéntame sobre tu proyecto",
+    "submitLabel": "Cotizar proyecto",
+    "privacyLabel": "He leído y acepto la Política de Privacidad.",
+    "marketingLabel": "Acepto recibir novedades, promociones y comunicaciones comerciales por correo electrónico y/o WhatsApp.",
+    "successMessage": "Gracias por contarme sobre tu proyecto. Tu solicitud ha sido registrada.",
+    "errorMessage": "No pudimos registrar tu solicitud. Inténtalo de nuevo o escríbeme por correo.",
+    "pendingLabel": "Enviando…",
+    "timelines": [
+      "Lo antes posible",
+      "En 2 a 4 semanas",
+      "En 1 a 2 meses",
+      "Aún no lo tengo definido"
+    ]
+  },
+  "footer": {
+    "title": "Contáctame",
+    "email": "jcpereda@gmail.com",
+    "phone": "",
+    "copyright": "José Pereda. Desarrollo web con propósito.",
+    "privacyLabel": "Política de Privacidad",
+    "claimsLabel": "Libro de Reclamaciones",
+    "claimsUrl": ""
+  },
+  "socials": [],
+  "privacy": {
+    "title": "Política de Privacidad",
+    "text": "Los datos enviados mediante este formulario se utilizan para responder tu solicitud de un proyecto web. Puedes solicitar acceso, rectificación o eliminación de tu información escribiendo al correo de contacto del sitio. Las comunicaciones comerciales solo se enviarán si marcas la casilla opcional correspondiente."
+  },
+  "seo": {
+    "title": "José Pereda | Desarrollo web con propósito",
+    "description": "Landing pages, páginas web, tiendas virtuales y desarrollo personalizado para negocios reales."
+  },
+  "appearance": {
+    "accent": "#83b9cc",
+    "surface": "#e9f8fc"
+  },
+  "sections": [
+    "acerca",
+    "proceso",
+    "servicios",
+    "proyectos",
+    "contacto"
+  ]
+}

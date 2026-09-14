@@ -1,0 +1,66 @@
+name: Verify and deploy
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: landing-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID || '16asym1c' }}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ vars.SANITY_DATASET || 'production' }}
+      SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID || '16asym1c' }}
+      SANITY_STUDIO_DATASET: ${{ vars.SANITY_DATASET || 'production' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run studio:build
+  deploy-web:
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx --yes vercel@50 pull --yes --environment=production --token="$VERCEL_TOKEN"
+      - run: npx --yes vercel@50 build --prod --token="$VERCEL_TOKEN"
+      - run: npx --yes vercel@50 deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+  deploy-studio:
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.STUDIO_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+      SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID || '16asym1c' }}
+      SANITY_STUDIO_DATASET: ${{ vars.SANITY_DATASET || 'production' }}
+      SANITY_STUDIO_HOSTNAME: ${{ vars.SANITY_STUDIO_HOSTNAME }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run studio:deploy -- --yes

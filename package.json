@@ -1,0 +1,36 @@
+{
+  "name": "jose-pereda-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "studio": "sanity dev",
+    "studio:build": "sanity build",
+    "studio:deploy": "sanity deploy",
+    "seed": "node --env-file=.env.local scripts/seed.mjs"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "@sanity/client": "^7.0.0",
+    "@sanity/image-url": "^1.2.0",
+    "sanity": "^4.0.0",
+    "styled-components": "^6.1.15",
+    "@fontsource/inter": "^5.2.0",
+    "zod": "^4.0.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

@@ -1,0 +1,12 @@
+.next/
+node_modules/
+.env*
+!.env.example
+.npm-cache/
+dist/
+.vercel/
+*.tsbuildinfo
+reference/
+output/
+.playwright-cli/
+.sanity/

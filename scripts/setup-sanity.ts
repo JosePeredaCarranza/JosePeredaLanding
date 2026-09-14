@@ -11,6 +11,7 @@ async function main(){
  const content=JSON.parse(await readFile('src/content/defaults.json','utf8'));
  async function upload(photo:{local:string;alt:string}){const asset=await client.assets.upload('image',await readFile('public'+photo.local),{filename:photo.local.split('/').pop(),contentType:'image/webp'});return {_type:'photo',asset:{_type:'reference',_ref:asset._id},alt:photo.alt};}
  content.logo=await upload(content.logo);content.hero.image=await upload(content.hero.image);
+ for (const stat of content.about.stats) { if(stat.image?.local) stat.image=await upload(stat.image); }
  await client.createIfNotExists(content);
  console.log('Landing importada en production. Dataset inquiries privado verificado.');
 }

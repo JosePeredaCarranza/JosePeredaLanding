@@ -5,7 +5,7 @@ import imageUrlBuilder from '@sanity/image-url';
 import defaults from '@/content/defaults.json';
 export type Photo = {local?: string; alt?: string; asset?: {_ref: string}; crop?: {top:number;bottom:number;left:number;right:number}; hotspot?: {x:number;y:number;width:number;height:number}};
 export type Project = {_key:string;title:string;category:string;description?:string;image?:Photo|null;url?:string;testimonial?:string;author?:string;rating?:number};
-export type Content = Omit<typeof defaults, 'projects'|'socials'|'logo'> & {logo:Photo;projects:Project[];socials:{_key:string;platform:'instagram'|'facebook'|'linkedin'|'whatsapp'|'github'|'tiktok';url:string}[]};
+export type Content = Omit<typeof defaults, 'projects'|'socials'|'logo'|'about'> & {about:Omit<typeof defaults.about,'stats'> & {stats:(Omit<typeof defaults.about.stats[number],'image'> & {image?:Photo})[]};logo:Photo;projects:Project[];socials:{_key:string;platform:'instagram'|'facebook'|'linkedin'|'whatsapp'|'github'|'tiktok';url:string}[]};
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 export const client = projectId ? createClient({projectId,dataset:process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',apiVersion:'2026-09-01',useCdn:false,perspective:'published'}) : null;
 export const getContent = cache(async ():Promise<Content> => {

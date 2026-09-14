@@ -8,4 +8,5 @@ if(await client.getDocument('landingPage')){console.log('La landing ya existe. N
 const content=JSON.parse(await readFile(new URL('../src/content/defaults.json',import.meta.url),'utf8'));
 async function upload(photo){const asset=await client.assets.upload('image',await readFile(new URL('../public'+photo.local,import.meta.url)),{filename:photo.local.split('/').pop(),contentType:'image/webp'});return {_type:'photo',asset:{_type:'reference',_ref:asset._id},alt:photo.alt};}
 content.hero.image=await upload(content.hero.image);content.logo=await upload(content.logo);
+for (const stat of content.about.stats) { if(stat.image?.local) stat.image=await upload(stat.image); }
 await client.createIfNotExists(content);console.log('Contenido inicial importado. Edita y publica desde Sanity Studio.');

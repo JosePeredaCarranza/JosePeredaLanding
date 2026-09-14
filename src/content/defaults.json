@@ -47,19 +47,31 @@
         "_key": "internet",
         "title": "Más de 28 millones",
         "subtitle": "de peruanos usan internet.",
-        "text": "Tu próximo cliente podría estar buscándote ahora mismo."
+        "text": "Tu próximo cliente podría estar buscándote ahora mismo.",
+        "image": {
+          "local": "/images/mapa-peru.webp",
+          "alt": "Mapa del Perú"
+        }
       },
       {
         "_key": "compra",
         "title": "7 de cada 10",
         "subtitle": "peruanos investigan online antes de comprar.",
-        "text": "Las búsquedas que realizan en la web influyen en sus decisiones de compra."
+        "text": "Las búsquedas que realizan en la web influyen en sus decisiones de compra.",
+        "image": {
+          "local": "/images/personas.webp",
+          "alt": "Grupo de personas"
+        }
       },
       {
         "_key": "confianza",
         "title": "42% de peruanos",
         "subtitle": "verifica si la tienda o vendedor es confiable.",
-        "text": "Y el 35% busca reseñas del producto en internet."
+        "text": "Y el 35% busca reseñas del producto en internet.",
+        "image": {
+          "local": "/images/tienda.webp",
+          "alt": "Tienda"
+        }
       }
     ]
   },

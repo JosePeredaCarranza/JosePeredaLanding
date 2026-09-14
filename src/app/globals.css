@@ -47,3 +47,8 @@ html{scroll-padding-top:106px}
 .stats .stat-slot article{isolation:isolate;overflow:hidden;box-shadow:inset 1px 1px 0 #c3f3ff55,inset -1px -1px 0 #061c2528,-7px -7px 24px -15px #a6e4f563}
 .stats .stat-slot article:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse at var(--light-x,-15%) var(--light-y,-15%),#c6f1ff85 0%,#a4e2f52e 30%,transparent 72%);opacity:calc(1 - var(--step) * .18)}
 @media(max-width:700px){.process .process-track ol{row-gap:34px}}
+
+/* Surface lighting and reflection follow the same interpolated 3D normal as the tilt. */
+.stats .stat-slot article{transition:none;filter:brightness(var(--illumination,1));box-shadow:inset 1px 1px 0 rgb(202 243 255 / var(--edge-light,.2)),inset -1px -1px 0 #03151d55,8px 12px 20px -16px #000b}
+.stats .stat-slot article:before{z-index:0;background:radial-gradient(ellipse at var(--reflection-x,15%) var(--reflection-y,15%),#e4faffbd 0%,#c6eeff47 28%,transparent 70%);opacity:var(--reflection,.15)}
+.stats .stat-slot article > *{position:relative;z-index:1}

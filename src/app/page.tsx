@@ -1,3 +1,4 @@
+import {Navigation} from '@/components/Navigation';
 import {TiltCard} from '@/components/TiltCard';
 import {getContent,safeUrl} from '@/lib/content';
 import {Photo} from '@/components/Photo';
@@ -9,7 +10,7 @@ const serviceIcons={landing:FiLayout,web:FiGlobe,shop:FiShoppingBag,code:FiCode}
 export default async function Home(){const c=await getContent();const statsIcons=[FiUsers,FiSearch,FiShield];
 return <div style={{'--accent':c.appearance.accent,'--card':c.appearance.surface} as React.CSSProperties}>
 <a className="skip" href="#main">Saltar al contenido</a>
-<header className="header wrap" id="inicio"><a className="brand" href="#inicio" aria-label={c.brand}><Photo photo={c.logo}/></a><nav aria-label="Navegación principal">{c.nav.map(n=><a key={n._key} href={safeUrl(n.href)}>{n.label}</a>)}</nav><a className="button small" href="#contacto">{c.contactLabel}<FiArrowUpRight/></a></header>
+<Navigation brand={c.brand} logo={<Photo photo={c.logo}/>} links={c.nav.map(n=>({...n,href:safeUrl(n.href)}))} contactLabel={c.contactLabel}/>
 <main id="main">
 <section className="hero wrap"><div className="hero-copy"><span className="eyebrow">{c.hero.eyebrow}</span><h1>{c.hero.title}</h1><p>{c.hero.description}</p><div className="actions"><a className="button" href="#contacto">{c.hero.primary}<FiArrowUpRight/></a><a className="button outline" href="#proyectos">{c.hero.secondary}</a></div></div><Photo photo={c.hero.image} priority className="portrait"/></section>
 {c.sections.map(section=>{switch(section){case 'acerca':return <section key={section} className="about wrap panel" id="acerca"><h2>{c.about.title}</h2><div className="stats">{c.about.stats.map((s,i)=>{const Icon=statsIcons[i%3];return <TiltCard key={s._key} index={i}>{s.image?<Photo photo={s.image} className="stat-art"/>:<Icon aria-hidden="true"/>}<h3>{s.title}</h3><strong>{s.subtitle}</strong><p>{s.text}</p></TiltCard>})}</div></section>;

@@ -13,7 +13,7 @@ export function WorkProcess({title,steps}:{title:string;steps:Step[]}){
   const paths=Array.from(root.querySelectorAll<SVGPathElement>('.connector-path'));
   const items=Array.from(root.querySelectorAll('li'));
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  const durations=paths.map(path=>Math.min(1100,Math.max(750,path.getTotalLength()/260*1000)));
+  const durations=paths.map(path=>Math.min(2100,Math.max(750,path.getTotalLength()/260*1000)));
   const dwell=950,total=durations.reduce((a,b)=>a+b,0)+items.length*dwell+650;
   let frame=0,previous=0,elapsed=0,visible=false;
   function hide(){if(marker.current)marker.current.style.opacity='0';items.forEach(item=>item.classList.remove('is-current-step'));}
@@ -28,7 +28,12 @@ export function WorkProcess({title,steps}:{title:string;steps:Step[]}){
    items.forEach((item,index)=>item.classList.toggle('is-current-step',index===stage));
    if(marker.current){
     marker.current.style.opacity=travel?'1':'0';
-    if(travel){const point=paths[stage].getPointAtLength(paths[stage].getTotalLength()*progress/durations[stage]);marker.current.setAttribute('transform',`translate(${point.x} ${point.y})`);}
+    if(travel){
+     const fraction=progress/durations[stage];
+     const eased=durations[stage]>750?fraction*fraction*(3-2*fraction):fraction;
+     const point=paths[stage].getPointAtLength(paths[stage].getTotalLength()*eased);
+     marker.current.setAttribute('transform',`translate(${point.x} ${point.y})`);
+    }
    }
    frame=requestAnimationFrame(tick);
   }

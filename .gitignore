@@ -10,3 +10,5 @@ reference/
 output/
 .playwright-cli/
 .sanity/
+
+out/

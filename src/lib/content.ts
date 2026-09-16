@@ -1,4 +1,5 @@
 import 'server-only';
+import {sitePath,staticExport} from './paths';
 import {cache} from 'react';
 import {createClient} from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
@@ -10,12 +11,12 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 export const client = projectId ? createClient({projectId,dataset:process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',apiVersion:'2026-09-01',useCdn:false,perspective:'published'}) : null;
 export const getContent = cache(async ():Promise<Content> => {
  if (!client) return defaults as Content;
- const data = await client.fetch<Content | null>(`*[_type == "landingPage" && _id == "landingPage"][0]{brand,logo,nav,contactLabel,hero,about,processTitle,steps,servicesTitle,serviceCta,services,projectsTitle,projectCta,projects,contact,footer,socials,privacy,seo,appearance,sections}`,{}, {next:{revalidate:60}});
+ const data = await client.fetch<Content | null>(`*[_type == "landingPage" && _id == "landingPage"][0]{brand,logo,nav,contactLabel,hero,about,processTitle,steps,servicesTitle,serviceCta,services,projectsTitle,projectCta,projects,contact,footer,socials,privacy,seo,appearance,sections}`,{}, {next:{revalidate:staticExport?false:60}});
  if (!data) return defaults as Content;
  return {...defaults,...data} as Content;
 });
 export function photoUrl(photo:Photo, width=1200) {
  if(photo.asset && client) return imageUrlBuilder(client).image(photo).width(width).fit('max').format('webp').quality(85).url();
- return photo.local || '';
+ return photo.local ? sitePath(photo.local) : '';
 }
 export function safeUrl(url?:string){return url && /^(https:\/\/|mailto:|tel:|#[a-z])/i.test(url) ? url : undefined;}

@@ -61,3 +61,11 @@ Todas las imágenes locales son WebP; Studio valida ese formato y el CDN lo soli
 ## Estado de entrega
 
 Web compilada y comprobada en escritorio y móvil. Studio compilado y publicado; esquemas e imágenes importados. Pendiente: token de servidor para activar recepción de solicitudes, otros perfiles sociales, imágenes y URLs definitivas de proyectos, y credenciales Vercel en GitHub Actions para el despliegue web. La sección de productos está excluida del código y del modelo editorial.
+
+## GitHub Pages
+
+El workflow `nextjs.yml` publica la exportación estática con Node 22, la ruta base proporcionada por Pages y el contenido publicado de Sanity. Las imágenes locales y los enlaces de privacidad incluyen la ruta base. Los cambios en Sanity se reflejan tras volver a ejecutar el workflow (Run workflow); también se admite `repository_dispatch` con tipo `sanity-published` para conectar un servicio de webhook autenticado. No se configura automáticamente ese servicio.
+
+GitHub Pages no ejecuta API de Next.js: en este destino, el formulario prepara un correo que el visitante revisa y envía desde su aplicación. No guarda solicitudes en Sanity ni muestra una confirmación de envío. El despliegue en Vercel conserva el endpoint `/api/contact` y el guardado privado cuando se configura el token del servidor.
+
+Prueba de exportación: establecer `NEXT_PUBLIC_STATIC_EXPORT=true`, `NEXT_PUBLIC_BASE_PATH=/JosePeredaLanding`, `NEXT_PUBLIC_SANITY_PROJECT_ID=16asym1c`, `NEXT_PUBLIC_SANITY_DATASET=production` y ejecutar `npm run build`. No usar `next start` para servir `out/`.

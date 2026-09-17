@@ -64,8 +64,14 @@ Web compilada y comprobada en escritorio y móvil. Studio compilado y publicado;
 
 ## GitHub Pages
 
-El workflow `nextjs.yml` publica la exportación estática con Node 22, la ruta base proporcionada por Pages y el contenido publicado de Sanity. Las imágenes locales y los enlaces de privacidad incluyen la ruta base. Los cambios en Sanity se reflejan tras volver a ejecutar el workflow (Run workflow); también se admite `repository_dispatch` con tipo `sanity-published` para conectar un servicio de webhook autenticado. No se configura automáticamente ese servicio.
+El workflow `nextjs.yml` publica la exportación estática con Node 22, la ruta base proporcionada por Pages y el contenido publicado de Sanity. Las imágenes locales y los enlaces de privacidad incluyen la ruta base. El contenido visible se actualiza automáticamente al publicar en Sanity. Para renovar el HTML inicial destinado a robots sin JavaScript se puede volver a ejecutar el workflow (Run workflow); también se admite `repository_dispatch` con tipo `sanity-published` para conectar un servicio de webhook autenticado. No se configura automáticamente ese servicio.
 
 GitHub Pages no ejecuta API de Next.js: en este destino, el formulario prepara un correo que el visitante revisa y envía desde su aplicación. No guarda solicitudes en Sanity ni muestra una confirmación de envío. El despliegue en Vercel conserva el endpoint `/api/contact` y el guardado privado cuando se configura el token del servidor.
 
 Prueba de exportación: establecer `NEXT_PUBLIC_STATIC_EXPORT=true`, `NEXT_PUBLIC_BASE_PATH=/JosePeredaLanding`, `NEXT_PUBLIC_SANITY_PROJECT_ID=16asym1c`, `NEXT_PUBLIC_SANITY_DATASET=production` y ejecutar `npm run build`. No usar `next start` para servir `out/`.
+
+## Actualizaciones automáticas desde Sanity
+
+La portada y Privacidad consultan el documento publicado al abrirse y escuchan sus cambios en tiempo real. Al pulsar **Publish** en Studio, las pestañas abiertas se actualizan sin desplegar. Los borradores no se muestran. Si se pierde la conexión, se conserva el último contenido y se vuelve a consultar cada 30 segundos y al recuperar foco o conexión. Solo se usa el dataset público, sin tokens en el navegador.
+
+La etiqueta title y las descripciones se actualizan también en el navegador. El HTML inicial y los metadatos que leen robots sin JavaScript siguen siendo una instantánea del último build de Pages; un nuevo despliegue renueva esa instantánea.

@@ -12,5 +12,5 @@ for(const file of ['index.html','privacidad/index.html']){
  }
 }
 const home=await readFile('out/index.html','utf8');
-if(!home.includes('Preparar correo'))throw new Error('Static contact fallback missing');
+if(!home.includes('name="stage"')||home.includes('name="marketing"'))throw new Error('Static contact fallback missing');
 console.log('Static assets, privacy links and contact mode verified.');

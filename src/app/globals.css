@@ -62,3 +62,13 @@ html{scroll-padding-top:106px}
 .process-connectors .traveller-halo{fill:#80dbff;opacity:.45;filter:blur(4px)}
 .process-connectors .traveller-core{fill:#efffff;filter:drop-shadow(0 0 4px #a3e9ff)}
 @media(prefers-reduced-motion:reduce){.process-traveller{display:none}}
+
+.about h2{font-size:clamp(25px,2.5vw,32px);line-height:1.18;white-space:normal}
+.stats h3{font-size:18px;line-height:1.22;margin-bottom:14px}
+.stats p{font-size:12px;line-height:1.6}
+.stats .stat-slot article{min-height:275px}
+.service h3{margin-bottom:14px}
+.service .subtitle{margin-top:12px}
+.contact-hint{font-size:11px;line-height:1.5;color:#91a7b0;text-align:center}
+.contact-hint a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){.stats .stat-slot article{min-height:0}.stats h3{font-size:20px;margin-bottom:7px}}

@@ -30,10 +30,10 @@
   ],
   "contactLabel": "Contactar",
   "hero": {
-    "eyebrow": "< Desarrollo web >",
+    "eyebrow": "< Desarrollo de software >",
     "title": "Hola, soy\nJosé Pereda.",
     "description": "Construyo experiencias digitales\ncon propósito.",
-    "primary": "Cotizar proyecto",
+    "primary": "Hablemos del proyecto",
     "secondary": "Mis proyectos",
     "image": {
       "local": "/images/jose-pereda.webp",
@@ -41,37 +41,28 @@
     }
   },
   "about": {
-    "title": "Desarrollo\nsoluciones web\npensadas para\nnegocios reales",
+    "title": "Construyo soluciones que van más allá de una sola plataforma",
     "stats": [
       {
         "_key": "internet",
-        "title": "Más de 28 millones",
-        "subtitle": "de peruanos usan internet.",
-        "text": "Tu próximo cliente podría estar buscándote ahora mismo.",
-        "image": {
-          "local": "/images/mapa-peru.webp",
-          "alt": "Mapa del Perú"
-        }
+        "title": "Web y experiencias digitales",
+        "subtitle": "",
+        "text": "Interfaces, plataformas y productos accesibles desde cualquier dispositivo.",
+        "icon": "web"
       },
       {
         "_key": "compra",
-        "title": "7 de cada 10",
-        "subtitle": "peruanos investigan online antes de comprar.",
-        "text": "Las búsquedas que realizan en la web influyen en sus decisiones de compra.",
-        "image": {
-          "local": "/images/personas.webp",
-          "alt": "Grupo de personas"
-        }
+        "title": "Aplicaciones y herramientas",
+        "subtitle": "",
+        "text": "Software móvil y de escritorio pensado para resolver necesidades concretas.",
+        "icon": "app"
       },
       {
         "_key": "confianza",
-        "title": "42% de peruanos",
-        "subtitle": "verifica si la tienda o vendedor es confiable.",
-        "text": "Y el 35% busca reseñas del producto en internet.",
-        "image": {
-          "local": "/images/tienda.webp",
-          "alt": "Tienda"
-        }
+        "title": "Sistemas, seguridad y bajo nivel",
+        "subtitle": "",
+        "text": "Proyectos donde importa entender qué ocurre detrás de la interfaz: rendimiento, arquitectura, redes y seguridad.",
+        "icon": "systems"
       }
     ]
   },
@@ -79,63 +70,63 @@
   "steps": [
     {
       "_key": "0",
-      "title": "Conozco tu negocio",
-      "text": "Conversamos sobre tu marca, servicios, clientes y objetivos."
+      "title": "Entiendo el problema",
+      "text": "Analizo el contexto, los objetivos y las restricciones antes de empezar a construir."
     },
     {
       "_key": "1",
-      "title": "Definimos la estructura",
-      "text": "Organizamos el contenido y las secciones que necesita tu página."
+      "title": "Defino el enfoque",
+      "text": "Organizo los requisitos y planteo una solución técnica adecuada al problema."
     },
     {
       "_key": "2",
-      "title": "Diseño y desarrollo",
-      "text": "Construyo una web adaptada a celulares, tablets y computadoras."
+      "title": "Diseño y construyo",
+      "text": "Convierto la idea en software, cuidando arquitectura, experiencia y mantenibilidad."
     },
     {
       "_key": "3",
-      "title": "Revisión",
-      "text": "Revisamos juntos la página y realizamos los ajustes necesarios."
+      "title": "Pruebo e itero",
+      "text": "Valido el funcionamiento, encuentro puntos débiles y ajusto lo necesario."
     },
     {
       "_key": "4",
-      "title": "Publicación",
-      "text": "Dejamos tu sitio listo para empezar a recibir visitas y contactos."
+      "title": "Entrego y documento",
+      "text": "Dejo una solución funcional, comprensible y preparada para seguir evolucionando."
     }
   ],
   "servicesTitle": "Servicios",
-  "serviceCta": "Cotizar proyecto",
+  "serviceCta": "Hablemos del proyecto",
   "services": [
     {
       "_key": "0",
-      "title": "Landing page",
-      "subtitle": "La mejor forma de comenzar tu presencia digital.",
-      "text": "Presenta tu negocio, servicios y propuesta de valor en una sola página enfocada en generar contactos.",
-      "icon": "landing",
-      "badge": "Más pedido"
-    },
-    {
-      "_key": "1",
-      "title": "Página web",
-      "subtitle": "Una presencia profesional para presentar tu marca.",
-      "text": "Un sitio completo para mostrar tus servicios, proyectos, información y fortalecer la confianza en tu negocio.",
+      "title": "Desarrollo web",
+      "subtitle": "Desde landing pages hasta sistemas web más completos.",
+      "text": "Sitios, plataformas y aplicaciones web adaptadas a las necesidades del proyecto.",
       "icon": "web",
       "badge": ""
     },
     {
+      "_key": "1",
+      "title": "Aplicaciones",
+      "subtitle": "Software pensado para resolver tareas concretas y funcionar bien en su entorno.",
+      "text": "Desarrollo de herramientas y aplicaciones para móvil o escritorio.",
+      "icon": "app",
+      "badge": ""
+    },
+    {
       "_key": "2",
-      "title": "Tienda virtual",
-      "subtitle": "Lleva tus productos a internet y abre un nuevo canal de venta.",
-      "text": "Muestra tu catálogo, recibe pedidos y permite que tus clientes compren desde cualquier dispositivo.",
-      "icon": "shop",
+      "title": "Software a medida",
+      "subtitle": "Automatizaciones, herramientas internas, integraciones y funcionalidades personalizadas.",
+      "text": "Soluciones construidas alrededor de un problema específico.",
+      "icon": "code",
       "badge": ""
     },
     {
       "_key": "3",
-      "title": "Desarrollo personalizado",
-      "subtitle": "Una solución hecha a medida para una necesidad específica.",
-      "text": "Desarrollo funcionalidades y herramientas adaptadas a los procesos y objetivos particulares de tu proyecto.",
-      "icon": "code",
+      "title": "Sistemas y seguridad",
+      "subtitle": "Análisis, experimentación y desarrollo más cercano al funcionamiento interno del software.",
+      "text": "Proyectos técnicos relacionados con sistemas, redes, rendimiento y ciberseguridad.",
+      "icon": "systems",
       "badge": ""
     }
   ],
@@ -168,15 +159,15 @@
     }
   ],
   "contact": {
-    "title": "¿Trabajamos juntos en tu próximo proyecto?",
-    "description": "Si tienes un negocio que funciona bien fuera de internet, una marca personal que quieres hacer crecer o un servicio que necesitas presentar profesionalmente, podemos construir una solución adecuada para ti.",
+    "title": "¿TRABAJAMOS JUNTOS EN TU PRÓXIMO PROYECTO?",
+    "description": "¿Tienes una idea, un problema por resolver o algo que quieres construir? Cuéntame sobre el proyecto y vemos qué enfoque tiene más sentido.",
     "nameLabel": "Nombre",
-    "phoneLabel": "WhatsApp",
+    "phoneLabel": "WhatsApp (opcional)",
     "emailLabel": "Correo",
-    "serviceLabel": "Servicio",
+    "serviceLabel": "Tipo de proyecto",
     "timelineLabel": "¿Cuándo te gustaría tenerlo listo?",
     "messageLabel": "Cuéntame sobre tu proyecto",
-    "submitLabel": "Cotizar proyecto",
+    "submitLabel": "Enviar consulta",
     "privacyLabel": "He leído y acepto la Política de Privacidad.",
     "marketingLabel": "Acepto recibir novedades, promociones y comunicaciones comerciales por correo electrónico y/o WhatsApp.",
     "successMessage": "Gracias por contarme sobre tu proyecto. Tu solicitud ha sido registrada.",
@@ -187,13 +178,29 @@
       "En 2 a 4 semanas",
       "En 1 a 2 meses",
       "Aún no lo tengo definido"
-    ]
+    ],
+    "projectTypes": [
+      "Web",
+      "Aplicación",
+      "Software a medida",
+      "Sistemas y seguridad",
+      "Otro"
+    ],
+    "stageLabel": "¿En qué etapa está?",
+    "stages": [
+      "Solo es una idea",
+      "Tengo requisitos",
+      "Ya existe algo",
+      "Necesito mejorarlo"
+    ],
+    "mailHint": "Se abrirá tu aplicación de correo con los datos de tu consulta.",
+    "mailStatus": "Revisa el mensaje en tu aplicación de correo y envíalo para completar la consulta."
   },
   "footer": {
     "title": "Contáctame",
     "email": "jcpereda@gmail.com",
     "phone": "",
-    "copyright": "José Pereda. Desarrollo web con propósito.",
+    "copyright": "José Pereda. Software y soluciones con propósito.",
     "privacyLabel": "Política de Privacidad",
     "claimsLabel": "Libro de Reclamaciones",
     "claimsUrl": ""
@@ -210,8 +217,8 @@
     "text": "Los datos enviados mediante este formulario se utilizan para responder tu solicitud de un proyecto web. Puedes solicitar acceso, rectificación o eliminación de tu información escribiendo al correo de contacto del sitio. Las comunicaciones comerciales solo se enviarán si marcas la casilla opcional correspondiente."
   },
   "seo": {
-    "title": "José Pereda | Desarrollo web con propósito",
-    "description": "Landing pages, páginas web, tiendas virtuales y desarrollo personalizado para negocios reales."
+    "title": "José Pereda | Desarrollo de software",
+    "description": "Desarrollo web, aplicaciones, software a medida, sistemas y seguridad. Soluciones para ideas y problemas reales."
   },
   "appearance": {
     "accent": "#83b9cc",

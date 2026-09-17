@@ -72,3 +72,74 @@ html{scroll-padding-top:106px}
 .contact-hint{font-size:11px;line-height:1.5;color:#91a7b0;text-align:center}
 .contact-hint a{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:700px){.stats .stat-slot article{min-height:0}.stats h3{font-size:20px;margin-bottom:7px}}
+
+/* More generous reading scale across desktop and mobile. */
+body{font-size:16px}
+.wrap{width:min(1280px,calc(100% - 80px))}
+.header nav{font-size:15px}
+.button{font-size:15px;padding:15px 25px;min-height:49px}
+.button.small{min-height:44px}
+.hero{height:540px}
+.hero-copy{padding-left:60px}
+.hero h1{font-size:clamp(46px,5vw,68px)}
+.hero p{font-size:19px}
+.eyebrow{font-size:14px}
+.about{padding:64px 48px;gap:36px;grid-template-columns:1fr 2fr}
+.about h2{font-size:clamp(30px,2.8vw,38px)}
+.stats .stat-slot article{padding:26px 21px;min-height:310px}
+.stats h3{font-size:21px}
+.stats p{font-size:14px}
+.process{padding:72px 30px 80px}
+.process h2,.section-heading h2{font-size:28px}
+.process h3{font-size:18px}
+.process p{font-size:15px;padding-top:14px}
+.process li>div{padding:15px}
+.step-icon{width:23px;height:23px}
+.service{padding:34px;min-height:340px}
+.service h3{font-size:29px}
+.service p,.service .subtitle{font-size:16px}
+.service a{font-size:14px}
+.service-icon{width:42px;height:42px}
+.service-icon svg{font-size:23px}
+.projects{padding-block:80px}
+.category{font-size:13px}
+.project-info h3{font-size:23px}
+.project-info p{font-size:15px}
+.project-info a{font-size:14px}
+.contact .section-heading h2{font-size:30px}
+.contact-intro{max-width:740px;font-size:16px}
+.contact-form{max-width:660px;gap:18px}
+.contact-form label{font-size:15px;gap:8px}
+input,select,textarea{font-size:16px;padding:13px 15px;min-height:49px}
+.contact-form .check,.contact-hint{font-size:13px}
+.footer nav,.footer-contact{font-size:14px}
+.footer h2{font-size:16px}
+.footer-bottom{font-size:12px}
+@media(min-width:701px) and (max-width:1050px){
+ .wrap{width:calc(100% - 48px)}
+ .hero-copy{padding-left:16px}.hero{height:490px}
+ .about{grid-template-columns:1fr;padding:40px;gap:30px}
+ .about h2{max-width:650px}.stats .stat-slot article{min-height:265px}
+ .services{padding-inline:30px}.service{padding:28px}
+ .header nav{font-size:14px}.nav-section{padding-inline:10px}
+}
+@media(max-width:700px){
+ .wrap{width:calc(100% - 36px)}
+ .header nav{font-size:12px}.nav-section{padding-inline:7px}
+ .hero{height:auto}.hero-copy{padding:0}
+ .hero h1{font-size:52px}.hero p{font-size:18px}.eyebrow{font-size:12px}
+ .button{font-size:14px;padding:14px 18px}.nav-contact{font-size:12px}
+ .portrait{height:370px}
+ .about{grid-template-columns:1fr;padding:32px 20px;gap:30px}
+ .about h2{font-size:32px;max-width:none}
+ .stats .stat-slot article{min-height:0;padding:22px 18px}
+ .stats h3{font-size:22px}.stats p{font-size:14px}
+ .process{padding:48px 0}.process h2{font-size:25px}
+ .process h3{font-size:17px}.process p{font-size:15px}
+ .section-heading h2{font-size:26px}
+ .services{padding:36px 14px}.service{padding:25px;min-height:320px}
+ .service h3{font-size:28px}.projects{padding-block:55px}
+ .contact .section-heading h2{font-size:27px}
+ .contact-intro{font-size:16px}.contact-form{gap:18px}
+ .footer-contact{overflow-wrap:anywhere}
+}

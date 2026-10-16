@@ -1,6 +1,7 @@
 import { defineType, defineField, defineArrayMember, type FieldDefinition } from 'sanity';
 import { FiFileText, FiMail, FiImage } from 'react-icons/fi';
 import defaults from '../src/content/defaults.json';
+import { WebpImageInput } from './WebpImageInput';
 const labels: Record<string, string> = {
   companyLabel: 'Etiqueta de empresa u organización',
   company: 'Empresa u organización',
@@ -69,7 +70,8 @@ const photo = defineType({
   title: 'Imagen WebP',
   type: 'image',
   icon: FiImage,
-  options: { hotspot: true, accept: 'image/webp' },
+  options: { hotspot: true, accept: 'image/*' },
+  components: { input: WebpImageInput },
   fields: [
     defineField({
       name: 'alt',
@@ -83,7 +85,7 @@ const photo = defineType({
       !value?.asset
         ? true
         : String(value.asset._ref).endsWith('-webp') ||
-          'Convierte la imagen a WebP antes de subirla.',
+          'Sube la imagen con el control de conversión automática para guardarla en WebP.',
     ),
 });
 function field(name: string, value: unknown): FieldDefinition {

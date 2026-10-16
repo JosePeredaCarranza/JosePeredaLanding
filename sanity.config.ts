@@ -5,6 +5,7 @@ const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '16asym1c';
 export default defineConfig([
   {
     name: 'contenido',
+    form: { image: { directUploads: false } },
     basePath: '/contenido',
     title: 'Jos� Pereda � Web',
     projectId,

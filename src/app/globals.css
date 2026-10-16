@@ -1764,9 +1764,7 @@ textarea {
   padding: 20px 22px;
 }
 .project-heading h3 {
-  flex: 1;
   font-size: 20px;
-  text-align: center;
 }
 .project-heading button {
   display: grid;

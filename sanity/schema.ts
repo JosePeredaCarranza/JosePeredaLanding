@@ -2,6 +2,8 @@ import { defineType, defineField, defineArrayMember, type FieldDefinition } from
 import { FiFileText, FiMail, FiImage } from 'react-icons/fi';
 import defaults from '../src/content/defaults.json';
 const labels: Record<string, string> = {
+  companyLabel: 'Etiqueta de empresa u organización',
+  company: 'Empresa u organización',
   stage: 'Etapa del proyecto',
   projectTypes: 'Tipos de proyecto',
   stageLabel: 'Etiqueta de etapa',
@@ -161,7 +163,8 @@ function field(name: string, value: unknown): FieldDefinition {
             field('image', null),
             defineField({
               name: 'url',
-              title: 'URL del proyecto',
+              title: 'Enlace del proyecto (opcional)',
+              description: 'Déjalo vacío para mostrar el proyecto sin enlace externo.',
               type: 'url',
               validation: (r) => r.uri({ scheme: ['https'] }),
             }),
@@ -263,14 +266,23 @@ export const inquiry = defineType({
   type: 'document',
   icon: FiMail,
   fields: [
-    ...['name', 'phone', 'email', 'service', 'stage', 'timeline', 'message', 'privacyText'].map(
-      (name) =>
-        defineField({
-          name,
-          title: labels[name] || name,
-          type: name === 'message' || name === 'privacyText' ? 'text' : 'string',
-          readOnly: true,
-        }),
+    ...[
+      'name',
+      'company',
+      'phone',
+      'email',
+      'service',
+      'stage',
+      'timeline',
+      'message',
+      'privacyText',
+    ].map((name) =>
+      defineField({
+        name,
+        title: labels[name] || name,
+        type: name === 'message' || name === 'privacyText' ? 'text' : 'string',
+        readOnly: true,
+      }),
     ),
     defineField({ name: 'createdAt', title: 'Fecha', type: 'datetime', readOnly: true }),
     defineField({ name: 'privacy', title: 'Privacidad aceptada', type: 'boolean', readOnly: true }),

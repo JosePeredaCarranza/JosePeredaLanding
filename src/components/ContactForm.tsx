@@ -1,6 +1,6 @@
 'use client';
 import { useId, useState } from 'react';
-import { FiAlertCircle } from 'react-icons/fi';
+import { FiArrowRight, FiAlertCircle } from 'react-icons/fi';
 import { Turnstile } from './Turnstile';
 
 const contactEndpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '';
@@ -26,6 +26,7 @@ export function ContactForm({ content: c, email }: { email: string; content: Con
       if (staticExport && !workerEnabled) {
         const body = [
           `Nombre: ${data.name}`,
+          `Empresa: ${data.company || 'No indicada'}`,
           `WhatsApp: ${data.phone || 'No indicado'}`,
           `Correo: ${data.email}`,
           `Tipo de proyecto: ${data.service}`,
@@ -57,20 +58,39 @@ export function ContactForm({ content: c, email }: { email: string; content: Con
   }
   return (
     <form onSubmit={submit} className="contact-form">
-      <label>
-        {c.nameLabel}
-        <input name="name" autoComplete="name" required maxLength={120} />
-      </label>
+      <div className="field-pair">
+        <label>
+          {c.nameLabel}
+          <input name="name" autoComplete="name" placeholder="Tu nombre" required maxLength={120} />
+        </label>
+        <label>
+          {c.companyLabel}
+          <input
+            name="company"
+            autoComplete="organization"
+            placeholder="Empresa o proyecto personal"
+            maxLength={160}
+          />
+        </label>
+      </div>
       <div className="field-pair">
         <label>
           {c.emailLabel}
-          <input name="email" type="email" autoComplete="email" required maxLength={200} />
+          <input
+            name="email"
+            type="email"
+            placeholder="tu@correo.com"
+            autoComplete="email"
+            required
+            maxLength={200}
+          />
         </label>
         <label>
           {c.phoneLabel}
           <input
             name="phone"
             type="tel"
+            placeholder="+51 …"
             autoComplete="tel"
             pattern={'[+0-9\\(\\) .\\-]{7,25}'}
             maxLength={25}
@@ -101,7 +121,14 @@ export function ContactForm({ content: c, email }: { email: string; content: Con
       </label>
       <label>
         {c.messageLabel}
-        <textarea name="message" rows={5} required minLength={10} maxLength={5000} />
+        <textarea
+          name="message"
+          rows={5}
+          placeholder="¿Qué te gustaría construir y qué necesitas resolver?"
+          required
+          minLength={10}
+          maxLength={5000}
+        />
       </label>
       <div className="honey" aria-hidden="true">
         <label>
@@ -156,7 +183,7 @@ export function ContactForm({ content: c, email }: { email: string; content: Con
         disabled={status === 'pending' || (workerEnabled && !turnstileToken)}
       >
         {status === 'pending' ? c.pendingLabel : c.submitLabel}
-        <span aria-hidden="true">↗</span>
+        <FiArrowRight aria-hidden="true" />
       </button>
       {staticExport && !workerEnabled && (
         <p className="contact-hint">

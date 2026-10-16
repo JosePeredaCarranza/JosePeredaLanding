@@ -6,6 +6,7 @@ import { TiltCard } from '@/components/TiltCard';
 import { safeUrl, type Content } from '@/lib/public-content';
 import { usePublishedContent } from '@/lib/usePublishedContent';
 import { Photo } from '@/components/Photo';
+import { ProjectCard } from '@/components/ProjectCard';
 import { ContactForm } from '@/components/ContactForm';
 import {
   FaInstagram,
@@ -16,6 +17,7 @@ import {
   FaTiktok,
 } from 'react-icons/fa';
 import {
+  FiPlus,
   FiLayout,
   FiGlobe,
   FiShoppingBag,
@@ -124,12 +126,10 @@ export function Landing({ initial }: { initial: Content }) {
                           </div>
                           <h3>{s.title}</h3>
                           <p>{s.text}</p>
-                          <p className="subtitle">
-                            <em>{s.subtitle}</em>
-                          </p>
+                          <p className="subtitle">{s.subtitle}</p>
                           <a href="#contacto">
-                            {c.serviceCta}
-                            <FiArrowUpRight />
+                            <span>{c.serviceCta}</span>
+                            <FiPlus aria-hidden="true" />
                           </a>
                         </article>
                       );
@@ -144,43 +144,8 @@ export function Landing({ initial }: { initial: Content }) {
                     <h2>{c.projectsTitle}</h2>
                   </div>
                   <div className="project-grid">
-                    {c.projects.map((p) => (
-                      <article key={p._key} className="project">
-                        <div className="project-image">
-                          <span className="category">{p.category}</span>
-                          {p.image ? (
-                            <Photo photo={p.image} />
-                          ) : (
-                            <div className="empty-project">
-                              <h3>{p.title}</h3>
-                            </div>
-                          )}
-                        </div>
-                        <div className="project-info">
-                          {p.image && <h3>{p.title}</h3>}
-                          {p.description && <p>{p.description}</p>}
-                          {p.testimonial && (
-                            <blockquote>
-                              <p>“{p.testimonial}”</p>
-                              <footer>
-                                {p.author}
-                                {p.rating && (
-                                  <span aria-label={`${p.rating} de 5`}>
-                                    {' '}
-                                    {'★'.repeat(Math.min(5, p.rating))}
-                                  </span>
-                                )}
-                              </footer>
-                            </blockquote>
-                          )}
-                          {safeUrl(p.url) && (
-                            <a href={safeUrl(p.url)} target="_blank" rel="noopener noreferrer">
-                              {c.projectCta}
-                              <FiArrowUpRight />
-                            </a>
-                          )}
-                        </div>
-                      </article>
+                    {c.projects.map((project) => (
+                      <ProjectCard key={project._key} project={project} cta={c.projectCta} />
                     ))}
                   </div>
                 </section>

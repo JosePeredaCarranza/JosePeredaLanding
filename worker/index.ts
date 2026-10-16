@@ -1,7 +1,9 @@
 import { z } from 'zod';
+import { renderInquiryEmail } from './email';
 
 const schema = z.object({
   name: z.string().trim().min(2).max(120),
+  company: z.string().trim().max(160).optional(),
   email: z.email().max(200),
   phone: z.string().max(25).optional(),
   service: z.string().trim().min(1).max(120),
@@ -122,8 +124,10 @@ export default {
           to: [env.CONTACT_TO],
           reply_to: data.email,
           subject: 'Nueva consulta desde el portfolio',
+          html: renderInquiryEmail(data),
           text: [
             `Nombre: ${data.name}`,
+            `Empresa: ${data.company || 'No indicada'}`,
             `Correo: ${data.email}`,
             `WhatsApp: ${data.phone || 'No indicado'}`,
             `Tipo de proyecto: ${data.service}`,

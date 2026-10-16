@@ -7,6 +7,7 @@ export const runtime = 'nodejs';
 
 const contactSchema = z.object({
   name: z.string().trim().min(2).max(120),
+  company: z.string().trim().max(160).optional(),
   phone: z.union([z.literal(''), z.string().regex(/^[+0-9() .-]{7,25}$/)]).optional(),
   email: z.email().max(200),
   service: z.string().max(120),

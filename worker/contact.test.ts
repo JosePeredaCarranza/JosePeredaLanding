@@ -82,3 +82,22 @@ test('validates Turnstile before sending; provider failures are not successes', 
   mailStatus = 429;
   assert.equal((await worker.fetch(request(), env)).status, 502);
 });
+import { renderInquiryEmail } from './email';
+
+test('email template escapes user data and formats the date in Peru', () => {
+  const html = renderInquiryEmail(
+    {
+      ...data,
+      name: '<img src=x onerror=alert(1)>',
+      company: 'A & B',
+      message: '<script>alert(1)</script>\nSegunda línea',
+    },
+    new Date('2026-10-16T02:00:00Z'),
+  );
+  assert.ok(html.includes('&lt;img'));
+  assert.ok(html.includes('A &amp; B'));
+  assert.ok(html.includes('&lt;script&gt;'));
+  assert.ok(html.includes('<br>Segunda línea'));
+  assert.ok(html.includes('15 de octubre de 2026'));
+  assert.ok(!html.includes('<script>'));
+});

@@ -1634,3 +1634,307 @@ textarea {
     content: none;
   }
 }
+
+/* Spacing and depth for the development areas. */
+.stats {
+  gap: 18px;
+}
+.stats .stat-slot article {
+  min-height: 330px;
+}
+
+/* Dark service surfaces inspired by the supplied reference. */
+.services {
+  padding: 68px 48px;
+  background:
+    radial-gradient(ellipse at 100% 0%, #243d4a88, transparent 45%),
+    radial-gradient(ellipse at 0% 100%, #24465477, transparent 40%), #060b0f;
+  border-radius: 22px;
+}
+.services .section-heading {
+  margin-bottom: 40px;
+}
+.services .section-heading h2 {
+  font-size: clamp(30px, 3.5vw, 44px);
+  letter-spacing: -1px;
+}
+.service-grid {
+  gap: 26px;
+}
+.service {
+  background: linear-gradient(135deg, #15232be6, #0b141be6);
+  border: 1px solid #3c5767;
+  border-radius: 20px;
+  min-height: 350px;
+  padding: 34px;
+  color: #edf4f9;
+  box-shadow: inset 0 1px 0 #b1dcff0c;
+  transition:
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+.service:hover {
+  border-color: #8dbbd4;
+  transform: translateY(-4px);
+}
+.service.featured {
+  box-shadow: 0 0 0 1px #83b9cc;
+}
+.service h3 {
+  color: #f2f6fa;
+  font-size: 29px;
+}
+.service p {
+  color: #c6d1dc;
+}
+.service .subtitle {
+  color: #a1b5c8;
+  font-style: normal;
+}
+.service-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 15px;
+  border: 1px solid #496479;
+  color: #c2daff;
+  background: radial-gradient(ellipse at 25% 10%, #355269, #14212d 80%);
+  box-shadow:
+    inset 0 0 15px #8acaff18,
+    0 5px 20px #0003;
+}
+.service-icon svg {
+  font-size: 28px;
+}
+.service a {
+  border: 0;
+  padding-bottom: 0;
+  padding-top: 24px;
+  gap: 14px;
+  color: #c5dfff;
+  font-size: 16px;
+}
+.service a span {
+  border-bottom: 1px solid #84b3e4;
+  padding-bottom: 5px;
+}
+.service a svg {
+  width: 27px;
+  height: 27px;
+  border: 1px solid #8bb6ff;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+/* Projects reveal below the image; touch and keyboard use the details button. */
+.projects {
+  padding-block: 100px;
+}
+.project-grid {
+  gap: 24px;
+  align-items: start;
+}
+.project-reveal {
+  border: 1px solid #2d414b;
+  border-radius: 18px;
+  background: #101b21;
+}
+.project-reveal .project-image {
+  height: 330px;
+  aspect-ratio: auto;
+  transition: height 350ms ease;
+}
+.project-placeholder {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+  color: #244b5e;
+  background: #dceff4;
+}
+.project-placeholder h3 {
+  font-size: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+.project-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 22px;
+}
+.project-heading h3 {
+  font-size: 20px;
+}
+.project-heading button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #425b68;
+  border-radius: 50%;
+  background: transparent;
+  color: #d2e7f2;
+}
+.project-heading button svg {
+  transition: transform 300ms ease;
+}
+.project-reveal-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 350ms ease,
+    opacity 250ms ease;
+}
+.project-reveal-body {
+  min-height: 0;
+  overflow: hidden;
+}
+.project-details {
+  padding: 0 22px 24px;
+}
+.project-details p {
+  color: #b8cbd5;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.project-details a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #bde3f5;
+}
+.project-reveal.is-expanded .project-image {
+  height: 280px;
+}
+.project-reveal.is-expanded .project-reveal-grid {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.project-reveal.is-expanded .project-heading button svg {
+  transform: rotate(180deg);
+}
+
+/* Contact surface and clear input hierarchy. */
+.contact {
+  padding-block: 48px 90px;
+}
+.contact .section-heading h2 {
+  max-width: 850px;
+  text-transform: none;
+  font-size: clamp(30px, 3vw, 40px);
+  letter-spacing: -1px;
+}
+.contact-intro {
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.contact-form {
+  max-width: 800px;
+  padding: 36px;
+  gap: 24px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #14212a, #0a1117 75%);
+  border: 1px solid #314956;
+  box-shadow: 0 20px 70px #0003;
+}
+.contact-form label {
+  color: #d9e4eb;
+  font-size: 14px;
+  gap: 10px;
+}
+.contact-form .field-pair {
+  gap: 20px;
+}
+.contact-form input:not([type='checkbox']),
+.contact-form select,
+.contact-form textarea {
+  background: #091117;
+  border-color: #3b535f;
+  border-radius: 11px;
+  padding: 15px 16px;
+  min-height: 54px;
+  color: #e9f2f7;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #8da2af;
+  opacity: 1;
+}
+.contact-form input:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+  border-color: #7b9cab;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  background: #101f28;
+}
+.contact-form .primary {
+  min-height: 56px;
+  border-radius: 12px;
+  margin-top: 0;
+  font-size: 16px;
+}
+.contact-form .primary svg {
+  width: 19px;
+  height: 19px;
+}
+.form-status:not(:empty) {
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #ffffff08;
+}
+.form-status:empty {
+  display: none;
+}
+@media (max-width: 1050px) and (min-width: 701px) {
+  .stats .stat-slot article {
+    min-height: 300px;
+  }
+}
+@media (max-width: 700px) {
+  .stats {
+    gap: 14px;
+  }
+  .stats .stat-slot article {
+    min-height: 0;
+  }
+  .services {
+    padding: 40px 18px;
+  }
+  .service-grid {
+    gap: 20px;
+  }
+  .service {
+    padding: 26px;
+    min-height: 330px;
+  }
+  .service h3 {
+    font-size: 27px;
+  }
+  .project-grid {
+    gap: 24px;
+  }
+  .projects {
+    padding-block: 64px;
+  }
+  .project-reveal .project-image {
+    height: 300px;
+  }
+  .project-reveal.is-expanded .project-image {
+    height: 250px;
+  }
+  .contact-form {
+    padding: 24px 18px;
+    gap: 22px;
+  }
+}

@@ -183,7 +183,8 @@
     "stageLabel": "¿En qué etapa está?",
     "stages": ["Solo es una idea", "Tengo requisitos", "Ya existe algo", "Necesito mejorarlo"],
     "mailHint": "Se abrirá tu aplicación de correo con los datos de tu consulta.",
-    "mailStatus": "Revisa el mensaje en tu aplicación de correo y envíalo para completar la consulta."
+    "mailStatus": "Revisa el mensaje en tu aplicación de correo y envíalo para completar la consulta.",
+    "companyLabel": "Empresa u organización (opcional)"
   },
   "footer": {
     "title": "Contáctame",

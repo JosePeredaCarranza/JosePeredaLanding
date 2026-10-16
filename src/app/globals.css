@@ -1764,7 +1764,9 @@ textarea {
   padding: 20px 22px;
 }
 .project-heading h3 {
+  flex: 1;
   font-size: 20px;
+  text-align: center;
 }
 .project-heading button {
   display: grid;
@@ -1794,6 +1796,7 @@ textarea {
 }
 .project-details {
   padding: 0 22px 24px;
+  text-align: center;
 }
 .project-details p {
   color: #b8cbd5;
@@ -1802,6 +1805,7 @@ textarea {
 }
 .project-details a {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   margin-top: 20px;

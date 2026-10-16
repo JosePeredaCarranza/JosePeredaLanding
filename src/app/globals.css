@@ -1757,16 +1757,19 @@ textarea {
   font-weight: 500;
 }
 .project-heading {
-  display: flex;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   padding: 20px 22px;
 }
 .project-heading h3 {
+  grid-column: 2;
   font-size: 20px;
+  text-align: center;
 }
 .project-heading button {
+  grid-column: 3;
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -1794,9 +1797,7 @@ textarea {
 }
 .project-details {
   padding: 0 22px 24px;
-  text-align: justify;
-  text-align-last: left;
-  hyphens: auto;
+  text-align: center;
 }
 .project-details p {
   color: #b8cbd5;
@@ -1805,6 +1806,7 @@ textarea {
 }
 .project-details a {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   margin-top: 20px;

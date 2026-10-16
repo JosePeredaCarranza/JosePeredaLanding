@@ -1809,7 +1809,7 @@ textarea {
   color: #bde3f5;
 }
 .project-reveal.is-expanded .project-image {
-  height: 280px;
+  height: 330px;
 }
 .project-reveal.is-expanded .project-reveal-grid {
   grid-template-rows: 1fr;
@@ -1931,7 +1931,7 @@ textarea {
     height: 300px;
   }
   .project-reveal.is-expanded .project-image {
-    height: 250px;
+    height: 300px;
   }
   .contact-form {
     padding: 24px 18px;

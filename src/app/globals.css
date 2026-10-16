@@ -1543,3 +1543,26 @@ textarea {
     overflow-wrap: anywhere;
   }
 }
+
+/* Text-only introduction. */
+.hero.hero-text-only {
+  display: flex;
+  align-items: center;
+  height: auto;
+  min-height: 460px;
+  padding-block: 72px;
+}
+.hero-text-only .hero-copy {
+  width: 100%;
+  max-width: 900px;
+  padding-left: 0;
+}
+.hero-text-only p {
+  max-width: 700px;
+}
+@media (max-width: 700px) {
+  .hero.hero-text-only {
+    min-height: 0;
+    padding-block: 48px 64px;
+  }
+}

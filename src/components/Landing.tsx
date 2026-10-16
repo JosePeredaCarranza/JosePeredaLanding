@@ -61,7 +61,7 @@ export function Landing({ initial }: { initial: Content }) {
         contactLabel={c.contactLabel}
       />
       <main id="main">
-        <section className="hero wrap">
+        <section className="hero hero-text-only wrap">
           <div className="hero-copy">
             <span className="eyebrow">{c.hero.eyebrow}</span>
             <h1>{c.hero.title}</h1>
@@ -76,7 +76,6 @@ export function Landing({ initial }: { initial: Content }) {
               </a>
             </div>
           </div>
-          <Photo photo={c.hero.image} priority className="portrait" />
         </section>
         {c.sections.map((section) => {
           switch (section) {

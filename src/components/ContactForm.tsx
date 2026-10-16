@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { FiAlertCircle } from 'react-icons/fi';
 import { Turnstile } from './Turnstile';
 
 const contactEndpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '';
@@ -11,6 +12,9 @@ export function ContactForm({ content: c, email }: { email: string; content: Con
   const [status, setStatus] = useState<'idle' | 'pending' | 'success' | 'error' | 'mail'>('idle');
   const [turnstileToken, setTurnstileToken] = useState('');
   const [challengeVersion, setChallengeVersion] = useState(0);
+  const [privacyError, setPrivacyError] = useState(false);
+  const privacyErrorId = useId();
+  const privacyLabelParts = c.privacyLabel.split(/(política de privacidad)/i);
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,6 +45,7 @@ export function ContactForm({ content: c, email }: { email: string; content: Con
       if (!response.ok) throw new Error();
       setStatus('success');
       form.reset();
+      setPrivacyError(false);
     } catch {
       setStatus('error');
     } finally {
@@ -104,15 +109,45 @@ export function ContactForm({ content: c, email }: { email: string; content: Con
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
-      <label className="check">
-        <input type="checkbox" name="privacy" required />
-        <span>
-          {c.privacyLabel}{' '}
-          <a href={sitePath('/privacidad/')} target="_blank" rel="noopener">
-            ↗
-          </a>
-        </span>
-      </label>
+      <div className="privacy-field">
+        <label className="check">
+          <input
+            type="checkbox"
+            name="privacy"
+            required
+            aria-invalid={privacyError || undefined}
+            aria-describedby={privacyError ? privacyErrorId : undefined}
+            onInvalid={(event) => {
+              event.preventDefault();
+              setPrivacyError(true);
+            }}
+            onChange={() => setPrivacyError(false)}
+          />
+          <span>
+            {privacyLabelParts.length > 1 ? (
+              privacyLabelParts.map((part, index) =>
+                index % 2 === 1 ? (
+                  <a key={index} href={sitePath('/privacidad/')} target="_blank" rel="noopener">
+                    {part}
+                  </a>
+                ) : (
+                  part
+                ),
+              )
+            ) : (
+              <a href={sitePath('/privacidad/')} target="_blank" rel="noopener">
+                {c.privacyLabel}
+              </a>
+            )}
+          </span>
+        </label>
+        {privacyError && (
+          <p className="privacy-error" id={privacyErrorId} role="alert">
+            <FiAlertCircle aria-hidden="true" />
+            Acepta la política de privacidad para continuar.
+          </p>
+        )}
+      </div>
       {workerEnabled && (
         <Turnstile key={challengeVersion} siteKey={turnstileSiteKey} onToken={setTurnstileToken} />
       )}

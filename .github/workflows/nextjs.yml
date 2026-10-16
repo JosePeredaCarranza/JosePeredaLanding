@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_STATIC_EXPORT: 'true'
+      NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.CONTACT_ENDPOINT }}
+      NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID || '16asym1c' }}
       NEXT_PUBLIC_SANITY_DATASET: ${{ vars.SANITY_DATASET || 'production' }}
     steps:

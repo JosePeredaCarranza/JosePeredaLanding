@@ -179,20 +179,9 @@
       "En 1 a 2 meses",
       "Aún no lo tengo definido"
     ],
-    "projectTypes": [
-      "Web",
-      "Aplicación",
-      "Software a medida",
-      "Sistemas y seguridad",
-      "Otro"
-    ],
+    "projectTypes": ["Web", "Aplicación", "Software a medida", "Sistemas y seguridad", "Otro"],
     "stageLabel": "¿En qué etapa está?",
-    "stages": [
-      "Solo es una idea",
-      "Tengo requisitos",
-      "Ya existe algo",
-      "Necesito mejorarlo"
-    ],
+    "stages": ["Solo es una idea", "Tengo requisitos", "Ya existe algo", "Necesito mejorarlo"],
     "mailHint": "Se abrirá tu aplicación de correo con los datos de tu consulta.",
     "mailStatus": "Revisa el mensaje en tu aplicación de correo y envíalo para completar la consulta."
   },
@@ -224,11 +213,5 @@
     "accent": "#83b9cc",
     "surface": "#e9f8fc"
   },
-  "sections": [
-    "acerca",
-    "proceso",
-    "servicios",
-    "proyectos",
-    "contacto"
-  ]
+  "sections": ["acerca", "proceso", "servicios", "proyectos", "contacto"]
 }

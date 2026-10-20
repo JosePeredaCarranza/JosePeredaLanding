@@ -31,7 +31,7 @@ export function Turnstile({
     const id = api.render(container.current, {
       sitekey: siteKey,
       action: 'contact',
-      theme: 'dark',
+      theme: 'light',
       size: 'flexible',
       callback: (token: string) => {
         setFailed(false);
